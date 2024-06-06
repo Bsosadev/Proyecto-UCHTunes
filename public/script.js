@@ -74,7 +74,7 @@ db.ref('songs').on('value', function(snapshot) {
 });
 
 // Definimos la cantidad de canciones por página y la página actual
-const songsPerPage = 20;
+const songsPerPage = 5;
 let currentPage = 1;
 
 // Función para mostrar las canciones de acuerdo a la página actual
@@ -161,6 +161,30 @@ function showSongs(snapshot) {
     // Obtener referencia al botón "Reproducir"
     const playButtons = document.querySelectorAll('.btn-player-music');
     
+    const playButton = document.getElementById('playButton');
+    const musicAudio = document.getElementById('music-audio');
+    // Agregar evento de clic al botón de reproducción/pausa
+    playButton.addEventListener('click', function() {
+        // Comprobar si el audio está pausado
+        if (musicAudio.paused) {
+            // Si está pausado, cargar la fuente del audio (si es necesario)
+            if (!musicAudio.src) {
+                // Aquí debes agregar la lógica para obtener la URL de la canción correspondiente utilizando el ID (songKey)
+                const songRef = db.ref('songs').child(songKey);
+                songRef.once('value', function(snapshot) {
+                    const song = snapshot.val();
+                    musicAudio.src = song.songURL; // Reemplaza "song.songURL" con la URL de tu archivo de audio
+                });
+            }
+            // Reproducir el audio
+            musicAudio.play();
+        } else {
+            // Si ya se está reproduciendo, pausar el audio
+            musicAudio.pause();
+        }
+    });
+
+    
     // Agregar evento de clic a cada botón "Reproducir"
     playButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -182,9 +206,7 @@ function showSongs(snapshot) {
             const progressMusic = document.getElementById('progress-music');
             const durationStart = document.getElementById('duration-start');
             const durationEnd = document.getElementById('duration-end');
-            const musicAudio = document.getElementById('music-audio');
             const rewindButton = document.getElementById('rewindButton');
-            const playButton = document.getElementById('playButton');
             const forwardButton = document.getElementById('forwardButton');
         
             // Aquí debes agregar la lógica para obtener los datos de la música correspondiente utilizando el ID (songKey)
@@ -208,6 +230,7 @@ function showSongs(snapshot) {
                 // Ocultar el modal de música
                 const musicModal = document.getElementById('music-modal');
                 musicModal.classList.add('hidden');
+                musicAudio.pause();
             });
         
             // Agregar evento de clic al botón de retroceso
@@ -215,26 +238,7 @@ function showSongs(snapshot) {
                 musicAudio.currentTime -= 10; // Retroceder la canción 10 segundos
             });
         
-            // Agregar evento de clic al botón de reproducción/pausa
-            playButton.addEventListener('click', function() {
-                // Comprobar si el audio está pausado
-                if (musicAudio.paused) {
-                    // Si está pausado, cargar la fuente del audio (si es necesario)
-                    if (!musicAudio.src) {
-                        // Aquí debes agregar la lógica para obtener la URL de la canción correspondiente utilizando el ID (songKey)
-                        const songRef = db.ref('songs').child(songKey);
-                        songRef.once('value', function(snapshot) {
-                            const song = snapshot.val();
-                            musicAudio.src = song.songURL; // Reemplaza "song.songURL" con la URL de tu archivo de audio
-                        });
-                    }
-                    // Reproducir el audio
-                    musicAudio.play();
-                } else {
-                    // Si ya se está reproduciendo, pausar el audio
-                    musicAudio.pause();
-                }
-            });
+            
         
             // Agregar evento de clic al botón de avance
             forwardButton.addEventListener('click', function() {
