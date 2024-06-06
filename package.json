@@ -1,0 +1,19 @@
+{
+  "name": "preu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "@preline/collapse": "^2.1.0",
+    "preline": "^2.1.0"
+  }
+}

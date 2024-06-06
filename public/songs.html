@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/tailwind.css">
+</head>
+<body>
+
+    <header
+        class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-[48] w-full bg-white border-b text-sm py-2.5 sm:py-4 lg:ps-64 dark:bg-neutral-800 dark:border-neutral-700">
+        <nav class="flex basis-full items-center w-full mx-auto px-4 sm:px-6" aria-label="Global">
+            <div class="me-5 lg:me-0 lg:hidden">
+                <!-- Logo -->
+                <a class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
+                    href="" aria-label="Preline">
+                    UCHTunes
+                </a>
+            </div>
+    
+            <div class="w-full flex items-center justify-end ms-auto sm:justify-between sm:gap-x-3 sm:order-3">
+                <div class="sm:hidden">
+                    <button type="button"
+                        class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700">
+                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.3-4.3" />
+                        </svg>
+                    </button>
+                </div>
+    
+                <div class="hidden sm:block">
+                    <label for="icon" class="sr-only">Search</label>
+                    <div class="relative min-w-72 md:min-w-80">
+                        <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+                            <svg class="flex-shrink-0 size-4 text-gray-400 dark:text-neutral-400"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8" />
+                                <path d="m21 21-4.3-4.3" />
+                            </svg>
+                        </div>
+                        <input type="text" id="icon" name="icon"
+                            class="py-2 px-4 ps-11 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                            placeholder="Search">
+                    </div>
+                </div>
+    
+                <div class="flex flex-row items-center justify-end gap-2">
+                    <div class="hs-dropdown [--placement:bottom-right] relative inline-flex">
+                        <button id="hs-dropdown-with-header" type="button"
+                            class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700">
+                            <img class="inline-block size-[38px] rounded-full ring-2 ring-white dark:ring-neutral-800"
+                                src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
+                                alt="Image Description">
+                        </button>
+                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 dark:bg-neutral-900 dark:border dark:border-neutral-700"
+                            aria-labelledby="hs-dropdown-with-header">
+                            <div class="py-3 px-5 -m-2 bg-gray-100 rounded-t-lg dark:bg-neutral-800">
+                                <p class="text-sm text-gray-500 dark:text-neutral-400">Registrado como</p>
+                                <p class="text-sm font-medium text-gray-800 dark:text-neutral-300">User@correo.com</p>
+                            </div>
+                            <div class="mt-2 py-2 first:pt-0 last:pb-0">
+                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300"
+                                    href="#">
+                                    <svg class="lucide lucide-settings flex-shrink-0 size-4"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path
+                                            d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                    Ajustes
+                                </a>
+                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300"
+                                    href="#">
+                                    <svg class="lucide lucide-log-out flex-shrink-0 size-4"
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                        <polyline points="16 17 21 12 16 7" />
+                                        <line x1="21" x2="9" y1="12" y2="12" />
+                                    </svg>
+                                    Salir
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div
+        class="fixed inset-x-0 z-20 bg-white border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-neutral-800 dark:border-neutral-700">
+        <div class="flex justify-between items-center py-2">
+            <!-- Breadcrumb -->
+            <ol class="ms-3 flex items-center whitespace-nowrap">
+                <li class="flex items-center text-sm text-gray-800 dark:text-neutral-400">
+                    App
+                    <svg class="flex-shrink-0 mx-3 overflow-visible size-2.5 text-gray-400 dark:text-neutral-500" width="16"
+                        height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </li>
+                <li class="text-sm font-semibold text-gray-800 truncate dark:text-neutral-400" aria-current="page">
+                    Canciones
+                </li>
+            </ol>
+            <!-- End Breadcrumb -->
+    
+            <!-- Sidebar -->
+            <button type="button"
+                class="py-2 px-3 flex justify-center items-center gap-x-1.5 text-xs rounded-lg border border-gray-200 text-gray-500 hover:text-gray-600 dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
+                data-hs-overlay="#application-sidebar" aria-controls="application-sidebar" aria-label="Sidebar">
+                <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M17 8L21 12L17 16M3 12H13M3 6H13M3 18H13" />
+                </svg>
+                <span class="sr-only">Sidebar</span>
+            </button>
+            <!-- End Sidebar -->
+        </div>
+    </div>
+    
+    <div id="application-sidebar" class="hs-overlay [--auto-close:lg]
+          hs-overlay-open:translate-x-0
+          -translate-x-full transition-all duration-300 transform
+          w-[260px]
+          hidden
+          fixed inset-y-0 start-0 z-[60]
+          bg-white border-e border-gray-200
+          lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
+          dark:bg-neutral-800 dark:border-neutral-700
+         ">
+        <div class="px-8 pt-4">
+            <!-- Logo -->
+            <a class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
+                href="index.html" aria-label="Preline">
+                UCHTunes
+            </a>
+            <!-- End Logo -->
+        </div>
+    
+        <nav class="hs-accordion-group p-6 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
+            <ul class="space-y-1.5">
+                <li>
+                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
+                        href="#">
+                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                        Dashboard
+                    </a>
+                </li>
+    
+                <li>
+                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
+                        href="genders.html">
+                        <svg class="lucide lucide-disc-album flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="18" height="18" x="3" y="3" rx="2" />
+                            <circle cx="12" cy="12" r="5" />
+                            <path d="M12 12h.01" />
+                        </svg>
+                        Generos
+                    </a>
+                </li>
+    
+                <li>
+                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
+                        href="#">
+                        <svg class="lucide lucide-disc-3 flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M6 12c0-1.7.7-3.2 1.8-4.2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
+                        </svg>
+                        Canciones
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div class="w-full lg:ps-64">
+        <div class="pt-16 px-4 sm:p-6 sm:pt-16 lg:pt-5 space-y-4 sm:space-y-6">
+            <div class="flex flex-col lg:flex-row h-screen">
+                <aside class="w-full lg:w-64 bg-gray-100 p-6 dark:bg-gray-800">
+                    <h3 class="mb-4 text-lg font-semibold">Tracks</h3>
+                    <div class="space-y-2">
+                        <div
+                            class="flex items-center justify-between rounded-md bg-white p-3 shadow-sm transition-colors hover:bg-gray-50 dark:bg-gray-950 dark:hover:bg-gray-900">
+                            <div class="flex items-center space-x-3">
+                                <img src="neve.jpg" width="40" height="40" alt="Album Cover" class="rounded-md"
+                                    style="aspect-ratio: 40 / 40; object-fit: cover;" />
+                                <div>
+                                    <h4 class="text-sm font-medium">Starlight</h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Muse</p>
+                                </div>
+                            </div>
+                            <button
+                                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="h-5 w-5">
+                                    <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                        <div
+                            class="flex items-center justify-between rounded-md bg-white p-3 shadow-sm transition-colors hover:bg-gray-50 dark:bg-gray-950 dark:hover:bg-gray-900">
+                            <div class="flex items-center space-x-3">
+                                <img src="neve.jpg" width="40" height="40" alt="Album Cover" class="rounded-md"
+                                    style="aspect-ratio: 40 / 40; object-fit: cover;" />
+                                <div>
+                                    <h4 class="text-sm font-medium">Bohemian Rhapsody</h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Queen</p>
+                                </div>
+                            </div>
+                            <button
+                                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="h-5 w-5">
+                                    <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                        <div
+                            class="flex items-center justify-between rounded-md bg-white p-3 shadow-sm transition-colors hover:bg-gray-50 dark:bg-gray-950 dark:hover:bg-gray-900">
+                            <div class="flex items-center space-x-3">
+                                <img src="neve.jpg" width="40" height="40" alt="Album Cover" class="rounded-md"
+                                    style="aspect-ratio: 40 / 40; object-fit: cover;" />
+                                <div>
+                                    <h4 class="text-sm font-medium">Smells Like Teen Spirit</h4>
+                                    <p class="text-xs text-gray-500 dark:text-gray-400">Nirvana</p>
+                                </div>
+                            </div>
+                            <button
+                                class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="h-5 w-5">
+                                    <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+                <div class="flex-1 bg-gray-50 dark:bg-gray-900 p-8 md:p-12 lg:p-16 xl:p-24">
+                    <div class="max-w-2xl mx-auto">
+                        <div class="mb-8">
+                            <h2 class="text-2xl font-semibold">Now Playing</h2>
+                            <div class="mt-4 flex flex-col md:flex-row items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <img src="/placeholder.svg" width="64" height="64" alt="Album Cover" class="rounded-md"
+                                        style="aspect-ratio: 64 / 64; object-fit: cover;" />
+                                    <div>
+                                        <h3 class="text-lg font-medium">Starlight</h3>
+                                        <p class="text-gray-500 dark:text-gray-400">Muse</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                                    <button
+                                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="h-6 w-6">
+                                            <polygon points="11 19 2 12 11 5 11 19"></polygon>
+                                            <polygon points="22 19 13 12 22 5 22 19"></polygon>
+                                        </svg>
+                                    </button>
+                                    <button
+                                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="h-6 w-6">
+                                            <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                                        </svg>
+                                    </button>
+                                    <button
+                                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="h-6 w-6">
+                                            <polyline points="15 17 20 12 15 7"></polyline>
+                                            <path d="M4 18v-2a4 4 0 0 1 4-4h12"></path>
+                                        </svg>
+                                    </button>
+                                    <span dir="ltr" data-orientation="horizontal" aria-disabled="false"
+                                        class="relative flex touch-none select-none items-center w-32 md:w-40 lg:w-48 xl:w-64 [&amp;>span:first-child]:h-1 [&amp;>span:first-child]:bg-gray-300 [&amp;_[role=slider]]:bg-gray-500 [&amp;_[role=slider]]:w-3 [&amp;_[role=slider]]:h-3 [&amp;_[role=slider]]:border-0 [&amp;>span:first-child_span]:bg-gray-500 [&amp;_[role=slider]:focus-visible]:ring-0 [&amp;_[role=slider]:focus-visible]:ring-offset-0 [&amp;_[role=slider]:focus-visible]:scale-105 [&amp;_[role=slider]:focus-visible]:transition-transform"
+                                        style="--radix-slider-thumb-transform: translateX(-50%);">
+                                        <span data-orientation="horizontal"
+                                            class="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
+                                            <span data-orientation="horizontal" class="absolute h-full bg-primary"
+                                                style="left: 0%; right: 60%;"></span>
+                                        </span>
+                                        <span
+                                            style="transform: var(--radix-slider-thumb-transform); position: absolute; left: calc(40% + 1.2px);">
+                                            <span role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal"
+                                                data-orientation="horizontal" tabindex="0"
+                                                class="block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                                                data-radix-collection-item="" aria-valuenow="40" style=""></span>
+                                        </span>
+                                    </span>
+                                    <button
+                                        class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="h-6 w-6">
+                                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-semibold">Lyrics</h3>
+                            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+                                <div class="rounded-md bg-white p-4 shadow-sm dark:bg-gray-950">
+                                    <p class="text-gray-500 dark:text-gray-400">A supernova explodes into</p>
+                                </div>
+                                <div class="rounded-md bg-white p-4 shadow-sm dark:bg-gray-950">
+                                    <p class="text-gray-500 dark:text-gray-400">A million pieces of light</p>
+                                </div>
+                                <div class="rounded-md bg-white p-4 shadow-sm dark:bg-gray-950">
+                                    <p class="text-gray-500 dark:text-gray-400">Cascading through the void</p>
+                                </div>
+                                <div class="rounded-md bg-white p-4 shadow-sm dark:bg-gray-950">
+                                    <p class="text-gray-500 dark:text-gray-400">On an eternal flight</p>
+                                </div>
+                                <div class="rounded-md bg-white p-4 shadow-sm dark:bg-gray-950">
+                                    <p class="text-gray-500 dark:text-gray-400">Blazing a trail of glory</p>
+                                </div>
+                                <div class="rounded-md bg-white p-4 shadow-sm dark:bg-gray-950">
+                                    <p class="text-gray-500 dark:text-gray-400">For all to see</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../node_modules/preline/dist/preline.js"></script>
+
+</body>
+</html>
