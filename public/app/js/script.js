@@ -75,6 +75,7 @@ const paginationDiv = document.getElementById('pagination');
 
 let currentAudio = null;
 let currentSongKey = null;
+let isPlaying = false;
 
 
 // Función para mostrar las canciones de acuerdo a la página actual
@@ -158,11 +159,15 @@ function showSongs(snapshot) {
         updatePagination(totalPages, snapshot);
     }
 
-    /* REPRODUCIR MUSICA */
+    // Configurar botones de reproducción
     setupPlayButtons();
+    // Configurar eventos de control de reproducción
+    setupControlButtons();
+    // Configurar botones de ver letra
+    setupViewLyricsButtons();
+    // Configurar botones de eliminar canción
+    setupDeleteButtons();
 }
-
-
 
 
 function setupPlayButtons() {
@@ -172,13 +177,6 @@ function setupPlayButtons() {
     const imageMusic = document.getElementById('image-music');
     const nameMusic = document.getElementById('name-music');
     const artistMusic = document.getElementById('artist-music');
-    const progressMusic = document.getElementById('progress-music');
-    const durationStart = document.getElementById('duration-start');
-    const durationEnd = document.getElementById('duration-end');
-    const playPauseButton = document.getElementById('playButton');
-    const rewindButton = document.getElementById('rewindButton');
-    const forwardButton = document.getElementById('forwardButton');
-    const closeMusicModalButton = document.getElementById('close-music-modal');
 
     playButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -198,6 +196,7 @@ function setupPlayButtons() {
                 if (musicAudio) musicAudio.src = songUrl;
 
                 currentSongKey = songKey;
+                isPlaying = true;
 
                 // Mostrar el modal de música
                 if (musicModal) musicModal.classList.remove('hidden');
@@ -205,14 +204,29 @@ function setupPlayButtons() {
             });
         });
     });
+}
+
+
+function setupControlButtons() {
+    const musicAudio = document.getElementById('music-audio');
+    const playPauseButton = document.getElementById('playButton');
+    const rewindButton = document.getElementById('rewindButton');
+    const forwardButton = document.getElementById('forwardButton');
+    const closeMusicModalButton = document.getElementById('close-music-modal');
+    const progressMusic = document.getElementById('progress-music');
+    const durationStart = document.getElementById('duration-start');
+    const durationEnd = document.getElementById('duration-end');
+    const musicModal = document.getElementById('music-modal');
 
     // Control de reproducción/pausa
     if (playPauseButton) {
         playPauseButton.addEventListener('click', function() {
             if (musicAudio.paused) {
                 musicAudio.play();
+                isPlaying = true;
             } else {
                 musicAudio.pause();
+                isPlaying = false;
             }
         });
     }
@@ -222,6 +236,7 @@ function setupPlayButtons() {
         closeMusicModalButton.addEventListener('click', function() {
             if (musicModal) musicModal.classList.add('hidden');
             if (musicAudio) musicAudio.pause();
+            isPlaying = false;
         });
     }
 
@@ -257,6 +272,86 @@ function formatTime(seconds) {
 }
 
 
+function setupViewLyricsButtons() {
+    const viewLyricsButtons = document.querySelectorAll('.btn-view-lyrics');
+    const lyricsModal = document.getElementById('lyrics-modal');
+    const lyricsContent = document.getElementById('lyrics-content');
+
+    viewLyricsButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const songKey = this.id;
+
+            // Obtenemos la referencia a la canción en Firebase
+            const songRef = db.ref('songs').child(songKey);
+
+            // Obtenemos la letra de la canción desde Firebase
+            songRef.once('value', function(snapshot) {
+                const song = snapshot.val();
+                const songLyrics = song.lyrics;
+
+                // Mostramos la letra de la canción en el modal
+                lyricsContent.textContent = songLyrics;
+                lyricsModal.classList.remove('hidden');
+            });
+        });
+    });
+
+    // Añadir listener para el evento click en el fondo oscurecido del modal
+    const modalBackground = document.querySelector('.bg-gray-500.opacity-75');
+    if (modalBackground) {
+        modalBackground.addEventListener('click', function() {
+            lyricsModal.classList.add('hidden');
+        });
+    }
+
+    // Añadir listener para el botón de cerrar el modal
+    const closeLyricsModalButton = document.getElementById('close-lyrics-modal');
+    if (closeLyricsModalButton) {
+        closeLyricsModalButton.addEventListener('click', function() {
+            lyricsModal.classList.add('hidden');
+        });
+    }
+}
+
+function setupDeleteButtons() {
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+    const deleteModal = document.getElementById('delete-modal');
+    const confirmDeleteButton = document.getElementById('confirm-delete-button');
+    const cancelDeleteButton = document.getElementById('cancel-delete-button');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const songKey = this.id;
+            deleteModal.dataset.songKey = songKey;
+            deleteModal.classList.remove('hidden');
+        });
+    });
+
+    // Confirmar eliminación
+    if (confirmDeleteButton) {
+        confirmDeleteButton.addEventListener('click', function() {
+            const songKey = deleteModal.dataset.songKey;
+
+            db.ref('songs/' + songKey).remove()
+                .then(function() {
+                    console.log('¡Canción eliminada correctamente!');
+                    deleteModal.classList.add('hidden');
+                })
+                .catch(function(error) {
+                    console.error('Error al eliminar la canción:', error);
+                });
+        });
+    }
+
+    // Cancelar eliminación
+    if (cancelDeleteButton) {
+        cancelDeleteButton.addEventListener('click', function() {
+            deleteModal.classList.add('hidden');
+        });
+    }
+}
+
+
 function updatePagination(totalPages, snapshot) {
     paginationDiv.innerHTML = ''; // Limpiar el contenido previo de paginación
 
@@ -279,10 +374,6 @@ function updatePagination(totalPages, snapshot) {
         paginationDiv.appendChild(pageButton);
     }
 }
-
-
-
-
 
 
 
