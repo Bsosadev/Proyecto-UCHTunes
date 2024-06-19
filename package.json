@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./public/css/style.css --watch"
+    "dev": "npx tailwindcss -i ./src/input.css -o ./public/app/css/style.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@preline/collapse": "^2.1.0",
+    "apexcharts": "^3.49.1",
+    "flowbite": "^2.3.0",
     "preline": "^2.1.0"
   }
 }

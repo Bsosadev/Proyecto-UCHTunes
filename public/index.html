@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="app/css/style.css">
 </head>
 <body>
     
@@ -12,7 +12,6 @@
         class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-[48] w-full bg-white border-b text-sm py-2.5 sm:py-4 lg:ps-64 dark:bg-neutral-800 dark:border-neutral-700">
         <nav class="flex basis-full items-center w-full mx-auto px-4 sm:px-6" aria-label="Global">
             <div class="me-5 lg:me-0 lg:hidden">
-                <!-- Logo -->
                 <a class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
                     href="" aria-label="Preline">
                     UCHTunes
@@ -92,10 +91,9 @@
         </nav>
     </header>
 
-    <div
+    <nav
         class="fixed inset-x-0 z-20 bg-white border-y px-4 sm:px-6 md:px-8 lg:hidden dark:bg-neutral-800 dark:border-neutral-700">
         <div class="flex justify-between items-center py-2">
-            <!-- Breadcrumb -->
             <ol class="ms-3 flex items-center whitespace-nowrap">
                 <li class="flex items-center text-sm text-gray-800 dark:text-neutral-400">
                     App
@@ -106,12 +104,10 @@
                     </svg>
                 </li>
                 <li class="text-sm font-semibold text-gray-800 truncate dark:text-neutral-400" aria-current="page">
-                    Dashboard
+                    Metricas
                 </li>
             </ol>
-            <!-- End Breadcrumb -->
-    
-            <!-- Sidebar -->
+
             <button type="button"
                 class="py-2 px-3 flex justify-center items-center gap-x-1.5 text-xs rounded-lg border border-gray-200 text-gray-500 hover:text-gray-600 dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
                 data-hs-overlay="#application-sidebar" aria-controls="application-sidebar" aria-label="Sidebar">
@@ -122,11 +118,10 @@
                 </svg>
                 <span class="sr-only">Sidebar</span>
             </button>
-            <!-- End Sidebar -->
         </div>
-    </div>
+    </nav>
 
-    <div id="application-sidebar" class="hs-overlay [--auto-close:lg]
+    <aside id="application-sidebar" class="hs-overlay [--auto-close:lg]
       hs-overlay-open:translate-x-0
       -translate-x-full transition-all duration-300 transform
       w-[260px]
@@ -137,26 +132,37 @@
       dark:bg-neutral-800 dark:border-neutral-700
      ">
         <div class="px-8 pt-4">
-            <!-- Logo -->
             <a class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
                 href="index.html" aria-label="Preline">
                 UCHTunes
             </a>
-            <!-- End Logo -->
         </div>
     
         <nav class="hs-accordion-group p-6 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
             <ul class="space-y-1.5">
                 <li>
                     <a class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
-                        href="#">
-                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                            <polyline points="9 22 9 12 15 12 15 22" />
+                        href="index.html">
+                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-line-chart">
+                            <path d="M3 3v18h18" />
+                            <path d="m19 9-5 5-4-4-3 3" />
                         </svg>
-                        Dashboard
+                        Metricas
+                    </a>
+                </li>
+
+                <li>
+                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
+                        href="upload.html">
+                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-width="2" stroke-linejoin="round" class="lucide lucide-folder-up">
+                            <path
+                                d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
+                            <path d="M12 10v6" />
+                            <path d="m9 13 3-3 3 3" />
+                        </svg>
+                        Subir Musica
                     </a>
                 </li>
 
@@ -172,40 +178,26 @@
                         Generos
                     </a>
                 </li>
-
-                <li>
-                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
-                        href="songs.html">
-                        <svg class="lucide lucide-disc-3 flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M6 12c0-1.7.7-3.2 1.8-4.2" />
-                            <circle cx="12" cy="12" r="2" />
-                            <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
-                        </svg>
-                        Canciones
-                    </a>
-                </li>
             </ul>
         </nav>
-    </div>
+    </aside>
 
     <div class="w-full lg:ps-64">
         <div class="pt-16 px-4 sm:p-6 sm:pt-16 lg:pt-5 space-y-4 sm:space-y-6">
             <div id="metricas" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                <!-- metricas -->
                 <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                     <div class="p-4 md:p-5">
                         <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
                             Total Canciones
                         </p>
-
-                        <h3 class=" mt-1 text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
-                            72,540
+                
+                        <h3 class=" mt-1 text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200"
+                            id="cantidadTotalCanciones">
+                
                         </h3>
                     </div>
                 </div>
-
+                
                 <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                     <div class="p-4 md:p-5">
                         <div class="flex items-center gap-x-2">
@@ -213,439 +205,73 @@
                                 Letras Asignadas
                             </p>
                         </div>
-    
+                
                         <div class="mt-1 flex items-center gap-x-2">
-                            <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
-                                29
+                            <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200" id="cantidadLetras">
+                
                             </h3>
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                     <div class="p-4 md:p-5">
                         <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
                             Generos Asignados
                         </p>
-
-                        <h3 class="mt-1 text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
-                            56
+                
+                        <h3 class="mt-1 text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200" id="cantidadGeneros">
                         </h3>
-
+                
                     </div>
                 </div>
-
+                
                 <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
                     <div class="p-4 md:p-5">
                         <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-                            Usuarios
+                            Artistas
                         </p>
-
-                        <h3 class="mt-1 text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
-                            92,913
+                
+                        <h3 class="mt-1 text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200" id="totalArtists">
                         </h3>
                     </div>
                 </div>
-            </div>
 
-            <div class="flex flex-col">
-                <div class="-m-1.5 overflow-x-auto">
-                    <div class="p-1.5 min-w-full inline-block align-middle">
-                        <div
-                            class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-neutral-800 dark:border-neutral-700">
-                            <div
-                                class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
-                                <div>
-                                    <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
-                                        Musicas
-                                    </h2>
-                                    <p class="text-sm text-gray-600 dark:text-neutral-400">
-                                        Agrega tu musica, editala y más
-                                    </p>
-                                </div>      
-
-                                <button type="button" 
-                                    class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
-                                    data-hs-overlay="#create-music">
-                                    <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M5 12h14" />
-                                        <path d="M12 5v14" />
-                                    </svg>
-                                    Agregar Musica
-                                </button>
-                                
-                                <div id="create-music"
-                                    class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
-                                    <div
-                                        class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
-                                        <div
-                                            class="w-full flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
-                                            <div class="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700">
-                                                <h3 class="font-bold text-gray-800 dark:text-white">
-                                                    Crear Genero Musical
-                                                </h3>
-                                                <button type="button"
-                                                    class="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"
-                                                    data-hs-overlay="#create-music">
-                                                    <span class="sr-only">Close</span>
-                                                    <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path d="M18 6 6 18"></path>
-                                                        <path d="m6 6 12 12"></path>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="p-4 overflow-y-auto">
-                                                <form id="music-form" class="grid gap-y-4">
-                                                    <div>
-                                                        <label for="artist" class="block text-sm mb-2">Artista</label>
-                                                        <input type="text" id="artist" placeholder="Artista"
-                                                            class="py-3 px-4 block w-full border border-gray-500 rounded-lg text-sm">
-                                                    </div>
-                                                    <div>
-                                                        <label for="song-name" class="block text-sm mb-2">Nombre de la cancion</label>
-                                                        <input type="text" id="song-name" placeholder="Nombre de la canción"
-                                                            class="py-3 px-4 block w-full border border-gray-500 rounded-lg text-sm">
-                                                    </div>
-                                                    <div>
-                                                        <select id="gender"
-                                                            class="py-3 px-4 pe-9 block w-full bg-gray-100 border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-transparent dark:text-neutral-400 dark:focus:ring-neutral-600">
-                                                            <!-- Aquí se mostrarán los géneros -->
-                                                        </select>
-                                                    </div>
-                                                    <div>
-                                                        <label for="song-name" class="block text-sm mb-2">Musica</label>
-                                                        <input type="file" id="song-file" accept=".mp3" class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400
-                                                                     file:bg-gray-50 file:border-0
-                                                                     file:me-4
-                                                                     file:py-3 file:px-4
-                                                                     dark:file:bg-neutral-700 dark:file:text-neutral-400">
-                                                    </div>
-                                                    <div>
-                                                        <label for="song-name" class="block text-sm mb-2">Portada</label>
-                                                        <input type="file" id="image-file" accept=".png, .jpg, .webp" class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400
-                                                                     file:bg-gray-50 file:border-0
-                                                                     file:me-4
-                                                                     file:py-3 file:px-4
-                                                                     dark:file:bg-neutral-700 dark:file:text-neutral-400">
-                                                    </div>
-                                                    <div>
-                                                        <textarea class="w-full border border-gray-500 rounded-lg p-1" id="lyrics"
-                                                            placeholder="Letra de la canción"></textarea>
-                                                    </div>
-                                
-                                                    <button type="submit"
-                                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-                                                        Subir
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-    
-                            <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-                                <thead class="bg-gray-50 dark:bg-neutral-800">
-                                    <tr>
-                                        <th scope="col" class="ps-6 lg:ps-3 pe-6 py-3 text-start">
-                                            <div class="flex items-center gap-x-2">
-                                                <span
-                                                    class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                    Portada
-                                                </span>
-                                            </div>
-                                        </th>
-    
-                                        <th scope="col" class="px-6 py-3 text-start">
-                                            <div class="flex items-center gap-x-2 hidden sm:table-cell">
-                                                <span
-                                                    class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                    Nombre
-                                                </span>
-                                            </div>
-                                        </th>
-    
-                                        <th scope="col" class="px-6 py-3 text-start hidden md:table-cell">
-                                            <div class="flex items-center gap-x-2">
-                                                <span
-                                                    class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                    Artista
-                                                </span>
-                                            </div>
-                                        </th>
-    
-                                        <th scope="col" class="px-6 py-3 text-start hidden lg:table-cell">
-                                            <div class="flex items-center gap-x-2">
-                                                <span
-                                                    class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                    Letra
-                                                </span>
-                                            </div>
-                                        </th>
-    
-                                        <th scope="col" class="px-6 py-3 text-start hidden xl:table-cell">
-                                            <div class="flex items-center gap-x-2">
-                                                <span
-                                                    class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-neutral-200">
-                                                    Genero
-                                                </span>
-                                            </div>
-                                        </th>
-    
-                                        <th scope="col" class="px-6 py-3 text-end"></th>
-                                    </tr>
-                                </thead>
-    
-                                <tbody id="songs" class="divide-y divide-gray-200 dark:divide-neutral-700">    
-                                    <!-- Aqui van las canciones -->
-                                </tbody>
-                            </table>
-
-                            <div
-                                class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-neutral-700">
-                                <div>
-                                    <p class="text-sm text-gray-600 dark:text-neutral-400">
-                                        <span class="font-semibold text-gray-800 dark:text-neutral-200">2</span> resultados
-                                    </p>
-                                </div>
-    
-                                <div id="pagination" class="inline-flex gap-x-2">
-                                    <button type="button" id="pag-1"
-                                        class="py-1.5 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
-                                        1
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="max-w-full md:col-span-2 w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+                    <h1 class="text-center">Canciones con letras asignadas</h1>
+                    <div class="py-6 text-black" id="pie-chart"></div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    
-    <div id="music-modal" class="hidden h-screen sm:h-[450px] fixed left-0 w-[100%] sm:w-[265px] bg-white border border-gray-300 px-6 pt-3 z-[80] bottom-0 sm:rounded-t-xl transition-all duration-700 ease-out">
-        <div class="flex justify-between mb-2 top-0">
-            <p>Reproductor</p>
-            <button id="close-music-modal">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
-                    <path d="M18 6 6 18" />
-                    <path d="m6 6 12 12" />
-                </svg>
-            </button>
-        </div>
-        
-        <div class="pt-10 sm:pt-0">
-            <!-- Album Cover -->
-            <img id="image-music" src="neve.jpg" class="w-64 h-64 sm:h-48 sm:w-48 bg-cover mx-auto rounded-lg mb-4 shadow-lg shadow-teal-50">
-            <!-- Song Title -->
-            <h2 id="name-music" class="text-xl font-semibold text-center">idk</h2>
-            <!-- Artist Name -->
-            <p id="artist-music" class="text-gray-600 text-sm text-center">Highvyn, Taylor Shin</p>
-            <!-- Music Controls -->
-            <div class="mt-6 flex justify-center items-center">
-                <button id="rewindButton" class="p-3 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-rewind">
-                        <polygon points="11 19 2 12 11 5 11 19" />
-                        <polygon points="22 19 13 12 22 5 22 19" />
-                    </svg>
-                </button>
-                <button id="playButton" class="p-4 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none mx-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-play">
-                        <polygon points="6 3 20 12 6 21 6 3" />
-                    </svg>
-                </button>
-                <button id="forwardButton" class="p-3 rounded-full bg-gray-200 hover:bg-gray-300 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-fast-forward">
-                        <polygon points="13 19 22 12 13 5 13 19" />
-                        <polygon points="2 19 11 12 2 5 2 19" />
-                    </svg>
-                </button>
-            </div>
-            <!-- Progress Bar -->
-            <div class="mt-6 bg-gray-200 h-2 rounded-full">
-                <div id="progress-music" class="bg-teal-500 h-2 rounded-full w-1/2"></div>
-                <audio id="music-audio" preload="none" src=""></audio>
-            </div>
-            <!-- Time Information -->
-            <div class="flex justify-between mt-2 text-sm text-gray-600">
-                <span id="dutation-start">1:57</span>
-                <span id="dutation-end">3:53</span>
-            </div>
-        </div>
-    </div>
+                <div class="max-w-full md:col-span-2 w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+                    <h3 class="text-center">Canciones por genero</h3>
+                
+                    <!-- Donut Chart -->
+                    <div class="py-6" id="donut-chart-2"></div>
+                </div>
 
-<!--     <div id="player-music" class="hidden h-screen md:h-[450px] fixed right-0 w-full max-w-[450px] bg-white border border-gray-300 p-6 z-[80] bottom-0 rounded-t-xl">
-        <div class="flex justify-between mb-1">
-            <h2 class="text-lg font-semibold mb-2">Reproductor</h2>
-            <button class="px-2 hover:bg-red-500 hover:text-white rounded-xl"> 
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
-                    <path d="M18 6 6 18" />
-                    <path d="m6 6 12 12" />
-                </svg>
-            </button>
-        </div>
-        <div class="h-60 w-60 rounded-lg overflow-hidden mb-4">
-            <img id="port-music" src="neve.jpg" alt="Music Album Cover" class="object-cover">
-        </div>
-        <div class="flex justify-between items-center mb-4">
-            <div class="flex items-center gap-2">
-                <button id="rewindButton"
-                    class="p-2 bg-transparent border border-transparent hover:border-gray-300 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rewind">
-                        <polygon points="11 19 2 12 11 5 11 19" />
-                        <polygon points="22 19 13 12 22 5 22 19" />
-                    </svg>
-                </button>
-                <button id="playButton"
-                    class="p-2 bg-transparent border border-transparent hover:border-gray-300 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play">
-                        <polygon points="6 3 20 12 6 21 6 3" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pause hidden">
-                        <rect x="14" y="4" width="4" height="16" rx="1" />
-                        <rect x="6" y="4" width="4" height="16" rx="1" />
-                    </svg>
-                </button>
-                <button id="forwardButton"
-                    class="p-2 bg-transparent border border-transparent hover:border-gray-300 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-fast-forward">
-                        <polygon points="13 19 22 12 13 5 13 19" />
-                        <polygon points="2 19 11 12 2 5 2 19" />
-                    </svg>
-                </button>
-            </div>
-            <div class="flex items-center gap-2">
-                <button id="volumeButton"
-                    class="p-2 bg-transparent border border-transparent hover:border-gray-300 focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume-2">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume-x hidden">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                        <line x1="22" x2="16" y1="9" y2="15" />
-                        <line x1="16" x2="22" y1="9" y2="15" />
-                    </svg>
-                </button>
-                <input id="volumeSlider" type="range" value="100" class="w-24 h-5 bg-gray-300">
-            </div>
-        </div>
-        <div class="text-center">
-            <h3 id="songTitle" class="text-lg font-semibold"></h3>
-            <p id="artista" class="text-sm text-gray-500"></p>
-        </div>
-        <div class="flex space-x-1 items-center justify-between">
-            <p id="duration-start" class="text-lg font-semibold"></p>
-            <audio id="music-play" src=""></audio>
-            <input id="progress-music" type="range" class="w-60 h-5 bg-gray-300">
-            <p id="duration-end" class="text-lg font-semibold">00:00</p>
-        </div>
-    </div> -->
+                <div class="max-w-full md:col-span-4 bg-white border shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700 w-full p-4 md:p-6">
+                    <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
+                        Generos Asignados
+                    </p>
+                    <!-- Gráfico -->
+                    <canvas id="graficoCancionesPorGenero" class="w-full h-96"></canvas>
+                </div>
 
-    <!-- Modal para ver letra de una canción -->
-    <div id="lyrics-modal" class="hidden fixed z-[80] inset-0 overflow-y-auto">
-        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-            <div class="fixed inset-0 transition-opacity">
-                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-            </div>
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>&#8203;
-            <div
-                class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 ">
-                    <div class="flex justify-center">
-                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900 text-center" id="modal-title">
-                                Letra de la canción
-                            </h3>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500 h-96 w-full whitespace-pre-line overflow-y-auto"
-                                    id="lyrics-content">
-                                    <!-- Aquí se mostrará la letra de la canción -->
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button type="button" id="close-lyrics-modal"
-                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
-                        Cerrar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Modal de confirmación para eliminar una canción -->
-    <div id="delete-modal" class="hidden fixed z-[80] inset-0 overflow-y-auto">
-        <div class="flex items-center justify-center min-h-screen">
-            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-    
-            <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full">
-                <div class="bg-white p-4 sm:p-6 sm:pb-4">
-                    <div class="sm:flex sm:items-start">
-                        <div
-                            class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
-                            <!-- Icono de advertencia -->
-                            <svg class="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </div>
-                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                            <h3 class="text-lg font-medium text-gray-900">
-                                ¿Estás seguro de que quieres eliminar esta canción?
-                            </h3>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500">
-                                    Esta acción no se puede deshacer. ¿Quieres continuar?
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-gray-50 p-4 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button id="confirm-delete-button" type="button"
-                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
-                        Eliminar
-                    </button>
-                    <button id="cancel-delete-button" type="button"
-                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
-                        Cancelar
-                    </button>
-                </div>
             </div>
         </div>
     </div>
 
     <script src="../node_modules/preline/dist/preline.js"></script>
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-    <script src="firebase.js"></script>
-    <script src="script.js"></script>
+    <script src="app/js/firebase.js"></script>
+    <!-- <script src="app/js/script.js"></script> -->
+    <script src="app/js/metrics.js"></script>
 
 </body>
 </html>

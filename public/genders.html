@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generos</title>
-    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="stylesheet" href="app/css/tailwind.css">
 </head>
 <body>
 
@@ -149,19 +149,34 @@
                 <li>
                     <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
                         href="index.html">
-                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                            <polyline points="9 22 9 12 15 12 15 22" />
+                            stroke-linejoin="round" class="lucide lucide-line-chart">
+                            <path d="M3 3v18h18" />
+                            <path d="m19 9-5 5-4-4-3 3" />
                         </svg>
-                        Dashboard
+                        Metricas
+                    </a>
+                </li>
+    
+                <li>
+                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
+                        href="upload.html">
+                        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                            stroke-linejoin="round" class="lucide lucide-folder-up">
+                            <path
+                                d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" />
+                            <path d="M12 10v6" />
+                            <path d="m9 13 3-3 3 3" />
+                        </svg>
+                        Subir Musica
                     </a>
                 </li>
     
                 <li>
                     <a class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
-                        href="#">
+                        href="genders.html">
                         <svg class="lucide lucide-disc-album flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg"
                             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -170,21 +185,6 @@
                             <path d="M12 12h.01" />
                         </svg>
                         Generos
-                    </a>
-                </li>
-    
-                <li>
-                    <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 dark:bg-neutral-700 dark:text-white"
-                        href="#">
-                        <svg class="lucide lucide-disc-3 flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                            height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M6 12c0-1.7.7-3.2 1.8-4.2" />
-                            <circle cx="12" cy="12" r="2" />
-                            <path d="M18 12c0 1.7-.7 3.2-1.8 4.2" />
-                        </svg>
-                        Canciones
                     </a>
                 </li>
             </ul>
@@ -305,8 +305,8 @@
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
-    <script src="firebase.js"></script>
-    <script src="genders.js"></script>
+    <script src="app/js/firebase.js"></script>
+    <script src="app/js/genders.js"></script>
     
 </body>
 </html>
