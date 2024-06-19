@@ -2,6 +2,7 @@
 module.exports = {
   content: [
     "./public/*.{html,js}",
+    "./public/app/pages/*.{html,js}",
     './node_modules/preline/dist/*.js',
     "./node_modules/flowbite/**/*.js"
   ],
