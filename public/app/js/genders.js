@@ -21,10 +21,55 @@ var genreForm = document.getElementById('genre-form');
 genreForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    var genre = genreInput.value;
+    var genre = genreInput.value.trim(); // Obtener y limpiar el valor del input
 
-    // Guarda el género en la base de datos
-    db.ref('genres').push(genre);
+    if (!genre) {
+        Swal.fire({
+            title: 'Error',
+            text: 'El campo de género no puede estar vacío',
+            icon: 'error'
+        });
+        return; // Asegurarse de que este return esté dentro de la función
+    }
+
+    // Verificar si el género ya existe en la base de datos
+    genresRef.once('value', function(snapshot) {
+        const genresData = snapshot.val();
+        let exists = false;
+
+        snapshot.forEach(function(childSnapshot) {
+            if (childSnapshot.val().toLowerCase() === genre.toLowerCase()) {
+                exists = true;
+            }
+        });
+
+        if (exists) {
+            Swal.fire({
+                title: 'Error',
+                text: 'El género ya existe',
+                icon: 'error'
+            });
+        } else {
+            // Guarda el género en la base de datos
+            db.ref('genres').push(genre).then(function() {
+                Swal.fire({
+                    title: 'Éxito',
+                    text: 'Género agregado correctamente',
+                    icon: 'success'
+                });
+                genreInput.value = ''; // Limpiar el input después de agregar el género
+            }).catch(function(error) {
+                console.error('Error al guardar el género:', error);
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Hubo un problema al agregar el género',
+                    icon: 'error'
+                });
+            });
+        }
+    }).catch(function(error) {
+        console.error('Error al verificar los géneros:', error);
+    });
 });
 
 // Escuchar cambios en los datos de la tabla "genres"
@@ -109,10 +154,6 @@ genresRef.on('value', function(snapshot) {
         deleteModal.classList.add('hidden');
     });
 });
-
-
-
-
 
 function deleteGenre(genreId) {
     // Obtener una referencia al género que se va a eliminar

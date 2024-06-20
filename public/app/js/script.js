@@ -375,9 +375,7 @@ function updatePagination(totalPages, snapshot) {
     }
 }
 
-
-
-// Listener para actualizar las canciones cuando cambia la base de datos
+// para actualizar las canciones cuando cambia la base de datos
 db.ref('songs').on('value', function(snapshot) {
     showSongs(snapshot);
 });
@@ -402,4 +400,3 @@ db.ref('genres').on('value', function(snapshot) {
         musicGenreSelect.appendChild(option);
     });
 });
-
